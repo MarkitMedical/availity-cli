@@ -16,6 +16,7 @@
     * [Development](#development)
     * [Deployment](#deployment)
   * [Authors](#authors)
+  * [Disclaimer](#disclaimer)
   * [License](#license)
 
 
@@ -195,6 +196,10 @@ $ availity push -u availity master
 
 **Robert Ventrone** ([robert.ventrone@availity.com](robert.ventrone@availity.com))
 
+
+
+## Disclaimer
+Open source software components distributed or made available in the Availity Materials are licensed to Company under the terms of the applicable open source license agreements, which may be found in text files included in the Availity Materials.
 
 
 ## License
