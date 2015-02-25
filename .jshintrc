@@ -25,14 +25,5 @@
   "quotmark": false,    // This option enforces the consistency of quotation marks used throughout your code. It accepts three values: true if you don't want to enforce one particular style but want some consistency, "single" if you want to allow only single quotes and "double" if you want to allow only double quotes.
   "smarttabs": false,   // This option suppresses warnings about mixed tabs and spaces when the latter are used for alignmnent only. The technique is called SmartTabs.
 
-  "node": true,
-
-  "globals": {
-    // Testing
-    "describe": true,
-    "it": true,
-    "beforeEach": true,
-    "afterEach": true,
-    "expect": true
-  }
+  "node": true
 }
