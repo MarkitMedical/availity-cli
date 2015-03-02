@@ -1,6 +1,8 @@
 var project = require('../lib/availity.project');
-var fs = require('fs');
+var fs = require('fs-extra');
+var path = require('path');
 var rimraf = require('rimraf');
+var path = require('path');
 
 describe('project', function() {
   var testParameters = {
@@ -40,4 +42,13 @@ describe('project', function() {
     config.minimumIE.should.equal(11);
     config.linkoutURL.should.equal('http://example.com/');
   });
+
+  it('should unzip a file',function(){
+    this.timeout(5000);
+    var writePath = path.normalize(process.cwd());
+    var readPath = writePath + '/testProject.zip';
+    project.unzipFile(readPath, writePath);
+    fs.existsSync(testParameters.name).should.be.ok;
+  });
+
 });
