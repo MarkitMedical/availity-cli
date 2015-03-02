@@ -36,6 +36,8 @@ Availity Command-Line Interface (CLI) allows you, as a developer, to create appl
 
 
 ## Setup
+**For Windows Users:** The Availity CLI uses command-line tools on your system like `git` and `ssh-keygen` that don't typically work well in a Windows Command Prompt. To use the Availity CLI, install [Git for Windows](https://msysgit.github.io/), which installs a Git BASH shortcut that launches a BASH shell optimized for working with Git. Use this shell to run all your Availity CLI commands.
+
 To set up the Availity CLI for use, you must log in using your Availity credentials.
 
 **Note:** The Availity CLI is currently in early access preview, so only certain parties have been granted Availity credentials. In the future, you will be able to register on the Availity Developer Portal to receive credentials for using the Availity CLI.
