@@ -32,10 +32,10 @@ Availity Command-Line Interface (CLI) allows you, as a developer, to create appl
 
 **Note**: If you don't have root access on your machine, running `npm install -g availity-cli` may fail. You can also install `availity-cli` locally; see [http://browsenpm.org/help](http://browsenpm.org/help) for instructions.
 
-**Note for Linux users**: `availity-cli` stores your token in the GNOME Keyring on Linux, so you may need to install `libgnome-keyring-dev` using your package manager before installing `availity-cli`.
-
 
 ## Setup
+**For Windows Users:** The Availity CLI uses command-line tools on your system like `git` and `ssh-keygen` that don't typically work well in a Windows Command Prompt. To use the Availity CLI, install [Git for Windows](https://msysgit.github.io/), which installs a Git BASH shortcut that launches a BASH shell optimized for working with Git. Use this shell to run all your Availity CLI commands.
+
 To set up the Availity CLI for use, you must log in using your Availity credentials.
 
 **Note:** The Availity CLI is currently in early access preview, so only certain parties have been granted Availity credentials. In the future, you will be able to register on the Availity Developer Portal to receive credentials for using the Availity CLI.
