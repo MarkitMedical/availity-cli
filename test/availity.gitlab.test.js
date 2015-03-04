@@ -55,7 +55,7 @@ describe('gitlab', function() {
     .post(gitlab._apiUrl('projects'))
     .reply(500, '');
 
-    gitlab.createProject('token', 'foo', utils.environments.TEST).should.be.rejected.and.notify(done);
+    gitlab.createProject('token', 'foo', 'group', utils.environments.TEST).should.be.rejected.and.notify(done);
   });
 
   it('should resolve for successful project', function(done) {
@@ -64,7 +64,7 @@ describe('gitlab', function() {
     .post(gitlab._apiUrl('projects'))
     .reply(201, '{ "ssh_url_to_repo" : "git@foo" }');
 
-    gitlab.createProject('token', 'foo', utils.environments.TEST).should.be.fulfilled.and.notify(done);
+    gitlab.createProject('token', 'foo', 'group', utils.environments.TEST).should.be.fulfilled.and.notify(done);
   });
 
   it('should reject for failed groups', function(done) {
