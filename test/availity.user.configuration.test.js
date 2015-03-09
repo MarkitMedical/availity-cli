@@ -13,7 +13,24 @@ properties[path.join(homeDirectory, '.availity.config.json')] = JSON.stringify({
     },
     {
       'name': 'qa',
-      'userId': 'qaUserId'
+      'userId': 'qaUserId',
+      'groups': [
+        {
+          'id': 100,
+          'name': 'Your Group',
+          'path': 'your-group'
+        },
+        {
+          'id': 123,
+          'name': 'My Group',
+          'path': 'my-group'
+        },
+        {
+          'id': 150,
+          'name': 'Another',
+          'path': 'another'
+        }
+      ]
     },
     {
       'name': 'prod',
@@ -59,5 +76,21 @@ describe('user configuration', function() {
   it('should return null for token when not logged in', function() {
     var should = require('chai').should();
     should.equal(userConfiguration.getCredentials('qa'), null);
+  });
+
+  it('should return null for non-existent group', function() {
+    var should = require('chai').should();
+    should.equal(userConfiguration.getGroup('not-here', 'qa'), null);
+  });
+
+  it('should return group for get by ID', function() {
+    userConfiguration.getGroup(123, 'qa').name.should.equals('My Group');
+  });
+
+  it('should return group for get by name', function() {
+    userConfiguration.getGroup('My Group', 'qa').name.should.equals('My Group');
+  });
+  it('should return group for get by path', function() {
+    userConfiguration.getGroup('my-group', 'qa').name.should.equals('My Group');
   });
 });
