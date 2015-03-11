@@ -15,6 +15,9 @@
       "url": "http://www.availity.com"
     }
   ],
+  "scripts": {
+    "test": "gulp test"
+  },
   "dependencies": {
     "bluebird": "^2.3.5",
     "chalk": "^1.0.0",
