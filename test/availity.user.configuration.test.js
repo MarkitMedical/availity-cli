@@ -1,45 +1,45 @@
 var path = require('path');
-var FS = require('fs-mock');
-var rewire = require('rewire');
-var userConfiguration = rewire('../lib/availity.user.configuration');
+var sinon = require('sinon');
+var userConfiguration = require('../lib/availity.user.configuration');
 
-var homeDirectory = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
-var properties = {};
-properties[path.join(homeDirectory, '.availity.config.json')] = JSON.stringify({
-  'environments': [
-    {
-      'name': 'test',
-      'userId': 'testUserId'
-    },
-    {
-      'name': 'qa',
-      'userId': 'qaUserId',
-      'groups': [
-        {
-          'id': 100,
-          'name': 'Your Group',
-          'path': 'your-group'
-        },
-        {
-          'id': 123,
-          'name': 'My Group',
-          'path': 'my-group'
-        },
-        {
-          'id': 150,
-          'name': 'Another',
-          'path': 'another'
-        }
-      ]
-    },
-    {
-      'name': 'prod',
-      'userId': 'prodUserId'
-    }
-  ]
+sinon.stub(userConfiguration, "_loadFromFile", function() {
+  return { 
+    'environments': [
+      {
+        'name': 'test',
+        'userId': 'testUserId'
+      },
+      {
+        'name': 'qa',
+        'userId': 'qaUserId',
+        'groups': [
+          {
+            'id': 100,
+            'name': 'Your Group',
+            'path': 'your-group'
+          },
+          {
+            'id': 123,
+            'name': 'My Group',
+            'path': 'my-group'
+          },
+          {
+            'id': 150,
+            'name': 'Another',
+            'path': 'another'
+          }
+        ]
+      },
+      {
+        'name': 'prod',
+        'userId': 'prodUserId'
+      }
+    ]
+  };
 });
-userConfiguration.__set__('fs', new FS(properties));
-userConfiguration._load(); // Now that we've mocked the fs, reload
+sinon.stub(userConfiguration, "_save", function() {
+});
+userConfiguration._load();
 
 describe('user configuration', function() {
   it('should have 3 environments', function() {
@@ -60,7 +60,7 @@ describe('user configuration', function() {
 
   it('should set a top-level setValue', function() {
     userConfiguration.setValue('foo', 'bar');
-    userConfiguration.getValue('foo').should.equals('bar');
+    userConfiguration.getValue('foo').should.equal('bar');
   });
 
   it('should set an environmental setValue', function() {
@@ -84,13 +84,14 @@ describe('user configuration', function() {
   });
 
   it('should return group for get by ID', function() {
-    userConfiguration.getGroup(123, 'qa').name.should.equals('My Group');
+    userConfiguration.getGroup(123, 'qa').name.should.equal('My Group');
   });
 
   it('should return group for get by name', function() {
-    userConfiguration.getGroup('My Group', 'qa').name.should.equals('My Group');
+    userConfiguration.getGroup('My Group', 'qa').name.should.equal('My Group');
   });
+
   it('should return group for get by path', function() {
-    userConfiguration.getGroup('my-group', 'qa').name.should.equals('My Group');
+    userConfiguration.getGroup('my-group', 'qa').name.should.equal('My Group');
   });
 });
