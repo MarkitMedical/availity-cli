@@ -1,7 +1,7 @@
 {
   "name": "availity-cli",
   "description": "Availity Command-line Interface (CLI)",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "homepage": "https://github.com/Availity/availity-cli",
   "authors": [
     {
