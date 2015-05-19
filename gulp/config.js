@@ -1,8 +1,20 @@
+var argv = require('minimist')(process.argv.slice(2));
+var path = require('path');
+
 module.exports = {
-  verb: {
+  args: {
+    verbose: !!argv.verbose
+  },
+  project: {
+    path: path.resolve(__dirname, '.')
+  },
+  readme: {
     src: ['docs/readme/readme.config.md'],
     name: 'README.md',
     dest: './'
+  },
+  packages: {
+    src: ['package.json']
   },
   js: {
     src: ['gulpfile.js', 'gulp/**/*.js', 'lib/**/*.js']
