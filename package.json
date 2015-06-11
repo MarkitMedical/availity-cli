@@ -77,7 +77,7 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "availity": "lib/availity.js"
+    "availity": "bin/index.js"
   },
   "keywords": []
 }
