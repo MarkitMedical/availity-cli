@@ -10,6 +10,9 @@
 [![Windows Passing](https://img.shields.io/appveyor/ci/hoop33/availity-cli.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/hoop33/availity-cli)
 [![Issues](https://img.shields.io/github/issues/Availity/availity-cli.svg)](https://github.com/Availity/availity-cli/issues)
 
+# !!! Deprecated !!!
+
+This project has been deprecated in favor of the [Availity Toolkit](https://github.com/Availity/availity-toolkit).
 
 # Table of Contents
   * [Intro](#intro)
